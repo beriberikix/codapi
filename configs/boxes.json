@@ -4,7 +4,7 @@
     },
     "zephyr": {
         "image": "codapi/zephyr",
-        "writeable": true,
+        "writable": true,
         "volume": "%s:/sandbox/app/src:ro"
     }
 }
