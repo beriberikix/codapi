@@ -1,0 +1,20 @@
+{
+  "run": {
+    "engine": "docker",
+    "entry": "main.c",
+    "steps": [
+      {
+        "box": "zephyr",
+        "user": "root",
+        "timeout": 60,
+        "command": [
+          "west",
+          "build",
+          "-b",
+          "native_sim",
+          "app/"
+        ]
+      }
+    ]
+  }
+}

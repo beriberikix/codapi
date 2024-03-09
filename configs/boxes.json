@@ -1,5 +1,10 @@
 {
     "alpine": {
         "image": "codapi/alpine"
+    },
+    "zephyr": {
+        "image": "codapi/zephyr",
+        "writeable": true,
+        "volume": "%s:/sandbox/app/src:ro"
     }
 }
