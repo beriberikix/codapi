@@ -1,16 +1,76 @@
 {
   "run": {
     "engine": "docker",
-    "entry": "app/main.c",
+    "entry": "main.c",
     "steps": [
       {
         "box": "zephyr",
         "command": [
+          "mkdir",
+          "app"
+        ]
+      },
+      {
+        "box": "zephyr",
+        "command": [
+          "mkdir",
+          "app/src"
+        ]
+      },
+      {
+        "box": "zephyr",
+        "command": [
+          "mv",
+          "west.yml",
+          "app"
+        ]
+      },
+      {
+        "box": "zephyr",
+        "command": [
+          "mv",
+          "CMakeLists.txt",
+          "app"
+        ]
+      },
+      {
+        "box": "zephyr",
+        "command": [
+          "mv",
+          "main.c",
+          "app/src"
+        ]
+      },
+      {
+        "box": "zephyr",
+        "command": [
+          "touch",
+          "app/prj.conf"
+        ]
+      },
+      {
+        "box": "zephyr",
+        "command": [
           "west",
-          "build",
-          "-b",
-          "native_sim",
+          "init",
+          "-l",
           "app/"
+        ]
+      },
+      {
+        "box": "zephyr",
+        "command": [
+          "west",
+          "update",
+          "--narrow",
+          "-o=--depth=1"
+        ]
+      },
+      {
+        "box": "zephyr",
+        "command": [
+          "west",
+          "zephyr-export"
         ]
       }
     ]

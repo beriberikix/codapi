@@ -5,7 +5,7 @@
         "runtime": "runc",
         "cpu": 1,
         "memory": 64,
-        "network": "none",
+        "network": "default",
         "writable": false,
         "volume": "%s:/sandbox:rw",
         "cap_drop": [
@@ -19,7 +19,7 @@
     "step": {
         "user": "root",
         "action": "run",
-        "timeout": 5,
+        "timeout": 50,
         "noutput": 4096
     }
 }
