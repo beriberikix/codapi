@@ -14,4 +14,7 @@ RUN \
   && west update --narrow -o=--depth=1 \
   && west zephyr-export \
   && pip install -r deps/zephyr/scripts/requirements-base.txt \
-  && mkdir app/src
+  && mkdir app/src \
+  && touch app/src/main.c \
+  && west build -b native_sim app/ \
+  && rm app/src/main.c
