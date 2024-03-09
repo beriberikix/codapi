@@ -6,13 +6,22 @@
       {
         "box": "zephyr",
         "user": "root",
-        "timeout": 60,
         "command": [
           "west",
           "build",
           "-b",
           "native_sim",
           "app/"
+        ]
+      },
+      {
+        "box": "zephyr",
+        "user": "root",
+        "timeout": 20,
+        "command": [
+          "timeout",
+          "5",
+          "./build/zephyr/zephyr.exe"
         ]
       }
     ]
